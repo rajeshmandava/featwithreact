@@ -6,18 +6,24 @@ class CatNav extends React.Component{
         console.log(this.props)
         const navLinks = this.props.data.map((link,i)=>{
             return(
-                <li key={i} className="cat-link left valign-wrapper">
+                <li key={i} className= "cat-link left valign-wrapper">
                     <i className="material-icons">{link.icon}</i>{link.title}
-                </li>                
+                </li>
             )
         })
         console.log(navLinks)
         return(
             <div className="row">
-                <ul className="cat-nav center-align">
-                    {navLinks}
-                </ul>
-            </div>
-        )
-    }
+            <ul className="cat-nav center-align">
+                {navLinks}
+            </ul>            
+        </div>
+    )
 }
+}
+
+{/* <div class="row">
+        <ul class="cat-nav center-align">
+			<li class="cat-link left valign-wrapper">
+				<i class="material-icons">code</i>Development
+			</li> */}
