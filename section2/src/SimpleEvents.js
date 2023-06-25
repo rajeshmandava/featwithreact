@@ -1,24 +1,43 @@
 import React, {Component} from 'react';
 
 
-class SimpleEvents extends Component{
+class EventAndState extends Component{
 
-    handleClick(){
-        console.log("Test")
+    constructor(){
+        super();
+        this.state={
+            inputText :""
+        }
+        // this.handleChange=this.handleChange.bind(this);
+    }
+    handleClick =()=>{
+        // console.log("Test")
+        this.setState({
+            inputText:""
+        })
     }
 
-    handleChange(){
-        console.log("User changed the input!!")
+    handleChange=(event)=>{
+        // console.dir(event.target.value)
+        this.setState({
+            inputText:event.target.value
+        })
+        console.log(this.state.inputText);
+
     }
 
-    handleSubmit(event){
+    handleSubmit=(event)=>{
         console.log("Form submitted!")
+        this.setState({
+            inputText:"State is cool"
+        })
         event.preventDefault();
     }
 
     render(){
         return(
             <div>
+                <h1>{this.state.inputText}</h1>
                 <form onSubmit={this.handleSubmit}>
                 <input onChange={this.handleChange} type="text" placeholder="Enter some text!" />
                 <button onClick={this.handleClick} className="btn">Click Me!</button>
@@ -28,4 +47,4 @@ class SimpleEvents extends Component{
     }
 }
 
-export default SimpleEvents;
+export default EventAndState;
