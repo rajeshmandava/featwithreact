@@ -1,4 +1,6 @@
 import React,{Component} from 'react';
+import Card from './Card';
+
 
 class CardSet extends Component{
     
@@ -22,24 +24,13 @@ class CardSet extends Component{
     render(){
         console.log(this.state.chosenCards)
 
-        const savedCards = this.state.chosenCards.map((card)=>{
-            return <h3>{card.course}</h3>
+        const savedCards = this.state.chosenCards.map((card,i)=>{
+            return <Card key={i} card={card}/>
         })
         const cardList = this.props.cards.map((card,i)=>{
             return(
                 <div className="col s2" key={i}>
-                    <div className="card hoverable small">
-                    <div className="card-image">
-                    <img src={card.image} />
-                </div>
-                <div className="card-content">
-                    <p>{card.course}</p>
-                    <p>{card.instructor}</p>
-                </div>
-                <div className="card-action">
-                    <a href="#">$9.99</a>
-                    </div>
-                </div>
+                    <Card card={card}/>
                 <button  onClick={()=>{this.saveCourse(i)}} className="btn waves-light waves-effect">Save</button>
             </div>	
             )
